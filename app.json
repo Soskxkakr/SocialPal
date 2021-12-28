@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "socialpal",
     "name": "SocialPal",
     "slug": "SocialPal",
     "version": "1.0.0",
@@ -23,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.soskxkakr.SocialPal"
     },
     "web": {
       "favicon": "./assets/favicon.png"
