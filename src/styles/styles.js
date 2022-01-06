@@ -21,6 +21,10 @@ const styles = StyleSheet.create({
     fontSize: 28,
     marginHorizontal: 12,
   },
+  paragraph: {
+    fontSize: 18,
+    marginHorizontal: 12,
+  },
   textInput: {
     marginHorizontal: 12,
     marginBottom: 8,

@@ -42,10 +42,11 @@ const convertToMonth = (month) => {
 };
 
 const DateConverter = (timestamp) => {
-  var dummyDate = timestamp.slice(0, 10);
-  var newDate = new Date(dummyDate);
-  var month = convertToMonth(newDate.getMonth() + 1);
-  return `${month} ${newDate.getDate()}`;
+  var dummyDate = new Date(timestamp);
+  var month = convertToMonth(dummyDate.getMonth() + 1);
+  // var newDate = new Date(dummyDate);
+  // var month = convertToMonth(newDate.getMonth() + 1);
+  return `${month} ${dummyDate.getDate()}`;
 };
 
 export default DateConverter;

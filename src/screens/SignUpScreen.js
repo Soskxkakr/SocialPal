@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { Image, TouchableOpacity, View } from "react-native";
 import { Text, TextInput } from "react-native-paper";
+import Spinner from "react-native-loading-spinner-overlay";
 import useFirebase from "../contexts/useFirebase";
+import useGlobalData from "../contexts/useGlobalData";
 import styles from "../styles/styles";
+import Snack from "../components/Snack";
 
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { signUpUser } = useFirebase();
+
   return (
     <View style={styles.container}>
       <Image
@@ -39,13 +43,9 @@ const SignUpScreen = ({ navigation }) => {
       </Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => {
-          if (email !== "" && password !== "" && password.length >= 6) {
-            signUpUser(email, password);
-          }
-        }}
+        onPress={() => signUpUser(email, password)}
       >
-        <Text style={{ textAlign: "center", color: "#fff" }}>Sign Up</Text>
+        <Text style={{ textAlign: "center", color: "#fff" }}>SIGN UP</Text>
       </TouchableOpacity>
       <Text style={{ textAlign: "center", marginTop: 12 }}>
         Already have an account?

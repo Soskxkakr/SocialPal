@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, TouchableOpacity, View } from "react-native";
 import { Text, TextInput } from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Logo from "../assets/images/logo.png";
+import useFirebase from "../contexts/useFirebase";
 import styles from "../styles/styles";
 
 const SignInScreen = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { signInUser } = useFirebase();
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={Logo} />
@@ -14,32 +19,26 @@ const SignInScreen = ({ navigation }) => {
         style={styles.textInput}
         mode="outlined"
         label="Email"
-        value={""}
-        onChangeText={() => {}}
+        value={email}
+        onChangeText={setEmail}
       />
       <TextInput
         style={styles.textInput}
         mode="outlined"
         label="Password"
-        value={""}
+        value={password}
         secureTextEntry
-        onChangeText={() => {}}
+        onChangeText={setPassword}
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("Link")}
+        onPress={() => signInUser(email, password)}
       >
-        <Text style={{ textAlign: "center", color: "#fff" }}>Sign In</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
-        <Text style={{ textAlign: "center", color: "#fff" }}>
-          <Icon name="google" size={18} color="#fff" />
-          {"    "}Sign In With Google
-        </Text>
+        <Text style={{ textAlign: "center", color: "#fff" }}>SIGN IN</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={{ marginTop: 12, marginHorizontal: 12 }}
-        onPress={() => {}}
+        onPress={() => navigation.navigate("ForgotPassword")}
       >
         <Text style={{ textAlign: "right" }}>Forgot Password?</Text>
       </TouchableOpacity>
